@@ -1,0 +1,68 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggen-Awesome CV: XeLaTeX template for a CV
+%
+% https://github.com/jagmoreira/Friggen-Awesome-CV
+% Author: Joao Moreira (https://github.com/jagmoreira)
+%
+% %% Body based on:
+% CV Friggeri X version 1.0 (01/01/2016) by Nadorrano
+% https://github.com/Nadorrano/cv-friggeri-x
+%
+% %% Header based on:
+% Awesome CV by Claud D. Park
+% https://github.com/posquit0/Awesome-CV
+%
+% License:
+% CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography,
+% if used, needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{friggen-awesome-cv}
+% Add `a4paper` to set a4 paper size
+% Add `nocolors` to remove colors from the document
+
+%-------------------------------------------------------------------------------
+%   PERSONAL INFORMATION
+%   Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+\email{not-real@gmail.com}
+\homepage{jagmoreira.com}
+\github{jagmoreira}
+\linkedin{joao-moreira}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \extrainfo{extra informations}
+
+\begin{document}
+
+\header{Jo\~{a}o}{Moreira}% Your name
+
+%-------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%-------------------------------------------------------------------------------
+
+\begin{aside}
+\input{sections/skills}
+\end{aside}
+%
+% % Leave the percent signs to avoid creating a paragraph between minipages
+%
+%-------------------------------------------------------------------------------
+%   MAIN SECTION
+%-------------------------------------------------------------------------------
+\begin{main}
+\input{sections/education}
+\input{sections/experience}
+\input{sections/dissemination}
+\end{main}
+
+\end{document}
