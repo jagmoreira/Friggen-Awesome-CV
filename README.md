@@ -28,6 +28,15 @@ The latest version of `biblatex` broke the bibliography section of the original 
 * Black and white template: `documentclass[nocolors]{friggen-awesome-cv}`
 
 
+## Compiling the template
+
+This template needs `xelatex` to be compiled.
+
+In addition, if you have `latexmk` installed you can use the provided Makefile to automate the compilation process:
+    * To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
+    * To clean up temporary latex files: `$ make decrap`
+    $ To also delete the compiled pdf file: `$ make clean`
+
 ## Credits
 
 The original Friggeri CV is released under the MIT license. See FRIGGERI-LICENSE.
