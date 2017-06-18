@@ -3,6 +3,11 @@
 Friggen-Awesome CV is a XeLateX template for a CV or resumé based mostly on [CV-Friggeri-X](https://github.com/Nadorrano/cv-friggeri-x) by [Nadorrano](https://github.com/Nadorrano), with a dash of [Awesome-CV](https://github.com/posquit0/Awesome-CV) by [posquit0](https://github.com/posquit0). Both of those templates are inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv) template, originally released by [Adrian Friggeri](https://github.com/afriggeri).
 
 
+## Preview
+
+![screenshot](screenshot.png)
+
+
 ## What's different from [CV-Friggeri-X](https://github.com/Nadorrano/cv-friggeri-x)
 
 #### New header
@@ -33,9 +38,10 @@ The latest version of `biblatex` broke the bibliography section of the original 
 This template needs `xelatex` to be compiled.
 
 In addition, if you have `latexmk` installed you can use the provided Makefile to automate the compilation process:
-    * To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
-    * To clean up temporary latex files: `$ make decrap`
-    $ To also delete the compiled pdf file: `$ make clean`
+
+* To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
+* To clean up temporary latex files: `$ make decrap`
+* To also delete the compiled pdf file: `$ make clean`
 
 ## Credits
 
