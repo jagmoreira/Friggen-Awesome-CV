@@ -1,3 +1,7 @@
+## personal file with contact info and final compiled file should not be in repo
+sections/personal.tex
+resume.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

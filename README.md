@@ -35,13 +35,24 @@ The latest version of `biblatex` broke the bibliography section of the original 
 
 ## Compiling the template
 
-This template needs `xelatex` to be compiled.
+1. Create a file with your contact info:
+    ```
+    $ cp sections/personal.template.tex sections/personal.tex
+    ```
 
-In addition, if you have `latexmk` installed you can use the provided Makefile to automate the compilation process:
+    You should do this to keep your personal contact, like email or phone number, out of a public repo.
 
-* To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
-* To clean up temporary latex files: `$ make decrap`
-* To also delete the compiled pdf file: `$ make clean`
+1. Compile the template using `xelatex`:
+    ```
+    $ xelatex resume.tex
+    ```
+
+    In addition, if you have `latexmk` installed you can use the provided Makefile to automate the compilation process:
+
+    * To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
+    * To clean up temporary latex files: `$ make decrap`
+    * To also delete the compiled pdf file: `$ make clean`
+
 
 ## Credits
 
