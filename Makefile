@@ -15,7 +15,7 @@ RESUME_INPUTS = $(wildcard $(RESUME_DIR)/*.tex)
 
 # Tools
 LATEXMK = latexmk
-XELATEX = -pdfxe -xelatex
+XELATEX = -xelatex
 # We need to exclude `recorder` option because otherwise latexmk seems to ignore
 # changes in files passed as \input{} to $RESUME
 LATEXMKOPT = -recorder- -silent
