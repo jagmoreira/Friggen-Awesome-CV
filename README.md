@@ -47,7 +47,7 @@ The latest version of `biblatex` broke the bibliography section of the original 
     $ xelatex resume.tex
     ```
 
-    In addition, if you have `latexmk` installed you can use the provided Makefile to automate the compilation process:
+    Alternatively, if you have `latexmk` installed you can use the provided Makefile to compile:
 
     * To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
     * To clean up temporary latex files: `$ make decrap`
