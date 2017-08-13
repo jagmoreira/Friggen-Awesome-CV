@@ -128,9 +128,9 @@
   %\par\vspace{.25\parskip}%
 }
 
-\renewcommand{\subsubsection}[2]{
+\renewcommand{\subsubsection}[1]{
   \par\vspace{.5\parskip}%
-  {\Large\headingfont\color{headercolor} #2}
+  {\large\headingfont\color{headercolor} #1}
   \par\vspace{.25\parskip}%
 }
 
@@ -498,7 +498,6 @@
 %%%%%%%%%%%%%%%%
 % Other tweaks %
 %%%%%%%%%%%%%%%%
-\RequirePackage[left=0.5cm,top=2.5cm,bottom=0.5cm,right=0.5cm,headsep=0pt,nofoot]{geometry}
 \RequirePackage{hyperref}
 \hypersetup{
 	hidelinks,
