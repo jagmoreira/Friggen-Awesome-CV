@@ -1,6 +1,9 @@
 \ProvidesClass{friggen-awesome-cv}[2017/06/18 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
+% Needed to use a toolbox of programming tools
+\RequirePackage{etoolbox}
+
 \DeclareOption{nocolors}{\def\@cv@nocolors{}}
 
 \DeclareOption*{%
@@ -17,6 +20,12 @@
     \setlength\paperwidth  {210mm}%
     \afourpapertrue%
    }
+
+% Add support for a sidebar
+\newbool{sidebar}
+\setbool{sidebar}{false}
+
+\DeclareOption{sidebar}{\setbool{sidebar}{true}}
 
 \ProcessOptions\relax
 \LoadClass{article}
@@ -114,12 +123,12 @@
 }
 
 \renewcommand{\section}[1]{
-  %\par\vspace{\parskip}
+  \par\vspace{\parskip}
   {%
     \LARGE\headingfont\color{headercolor}%
     \@sectioncolor #1%
   }
-  \par\vspace{0.25\baselineskip}
+  %\par\vspace{0.25\baselineskip}
 }
 
 \renewcommand{\subsection}[1]{
@@ -134,9 +143,9 @@
   \par\vspace{.25\parskip}%
 }
 
-% Remove space before list and un-indent items
+% Change space before list and before each item
 \let\olditemize\itemize
-\def\itemize{\vspace{-\baselineskip}\olditemize[leftmargin=*]}
+\def\itemize{\vspace{-\baselineskip}\olditemize[leftmargin=0.25in]}
 
 
 %%%%%%%%%%
@@ -161,8 +170,6 @@
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
 \RequirePackage{xifthen}
-% Needed to use a toolbox of programming tools
-\RequirePackage{etoolbox}
 
 % Header spacings
 \newcommand{\headerIconSep}{\space\space}
@@ -302,7 +309,7 @@
 
 \setlength{\tabcolsep}{0.005\textwidth}
 \newenvironment{entrylist}{%
-  \begin{tabular*}{\textwidth}{ll}
+  \begin{tabular*}{\textwidth}{lr}
 }{%
   \end{tabular*}
 }
@@ -310,53 +317,70 @@
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 
 \newcommand{\entry}[4]{%
-  \parbox[t]{0.21\textwidth}{\hfill#1}&\parbox[t]{0.77\textwidth}{%
-  \textbf{#2}%
-  \hfill%
-  {\normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
-  #4\vspace{\parsep}%
-  }\\}
+  \textbf{#1}\\
+  {\addfontfeature{Color=lightgray} #2} &%
+  {\addfontfeature{Color=lightgray} #3}\\
+  \multicolumn{2}{l}{%
+    \ifthenelse{\isempty{#4}}%
+      {\vspace{-2\parskip}}
+      {\parbox[t]{0.98\textwidth}{\hspace{0.25in}#4\vspace{\parsep}}}
+    }\\
+}
 
-\newcommand{\shortentry}[2]{%
-  \parbox[t]{0.21\textwidth}{\hfill#1}&\parbox[t]{0.77\textwidth}{%
-  \textbf{#2}
-  \hfill%
-  \vspace{\parsep}%
-  }\\}
+\newcommand{\shortentry}[4]{%
+  \textbf{#1} & %
+  #2 \hfill {\addfontfeature{Color=lightgray} #3}\\
+  \multicolumn{2}{l}{%
+    \ifthenelse{\isempty{#4}}%
+      {\vspace{-2\parskip}}
+      {\parbox[t]{0.98\textwidth}{\hspace{0.25in}#4\vspace{\parsep}}}
+    }\\
+}
+
+\newcommand{\minientry}[2]{%
+  {\hfill\textbf{#1}} & \parbox[t]{0.77\textwidth}{#2} \\
+}
 
 
 %%%%%%%%%%%%%%
 % Side block %
 %%%%%%%%%%%%%%
 
-\newenvironment{aside}{%
-  \let\oldsection\section
-  \renewcommand{\section}[1]{
-    {%
-      \LARGE\headingfont\color{headercolor}%
-      \@sectioncolor ##1%
-    }%
-    \vspace{0.25\baselineskip}
+\ifbool{sidebar}{%
+  \newenvironment{aside}{%
+    \let\oldsection\section
+    \renewcommand{\section}[1]{
+      {%
+        \LARGE\headingfont\color{headercolor}%
+        \@sectioncolor ##1%
+      }%
+      \vspace{0.25\baselineskip}
+    }
+    \begin{minipage}[t]{0.19\textwidth}%
+    \vspace{\parskip}
+    \begin{flushright}
+    \obeycr
+  }{%
+    \restorecr
+    \end{flushright}
+    \let\section\oldsection
+    \end{minipage}\hfill
   }
-  \begin{minipage}[t]{0.19\textwidth}%
-  \vspace{\parskip}
-  \begin{flushright}
-  \obeycr
-}{%
-  \restorecr
-  \end{flushright}
-  \let\section\oldsection
-  \end{minipage}\hfill
 }
+{}
 
 %%%%%%%%%%%%%%
 % Main Block %
 %%%%%%%%%%%%%%
 
-\newenvironment{main}{%
-  \begin{minipage}[t]{0.79\textwidth}%
+\ifbool{sidebar}{
+  \newenvironment{main}{
+    \begin{minipage}[t]{0.79\textwidth}%
+  }{%
+    \end{minipage}
+  }
 }{%
-  \end{minipage}
+  \newenvironment{main}{}{}
 }
 
 
@@ -498,6 +522,7 @@
 %%%%%%%%%%%%%%%%
 % Other tweaks %
 %%%%%%%%%%%%%%%%
+\RequirePackage{geometry}
 \RequirePackage{hyperref}
 \hypersetup{
 	hidelinks,

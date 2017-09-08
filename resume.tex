@@ -26,9 +26,10 @@
 \documentclass[12pt]{friggen-awesome-cv}
 % Add `a4paper` to set a4 paper size
 % Add `nocolors` to remove colors from the document
+% Add `sidebar` to enable a sidebar section on the left
 
 % Configure page margins to properly fit your content
-\usepackage[left=0.5cm,top=2.5cm,bottom=0.5cm,right=0.5cm,headsep=0pt,nofoot]{geometry}
+\geometry{left=1cm,top=3cm,bottom=0.5cm,right=1cm,headsep=10pt,nofoot}
 
 %-------------------------------------------------------------------------------
 %   PERSONAL INFORMATION
@@ -42,11 +43,12 @@
 %-------------------------------------------------------------------------------
 %	SIDEBAR SECTION
 %-------------------------------------------------------------------------------
-
-\begin{aside}
-\input{sections/skills}
-\end{aside}
-%
+% If `sidebar` is added in the documentclass definition above, uncomment these
+% lines to allow a sidebar on the left. See template section
+%\begin{aside}
+%\input{sections/skills_aside}
+%\end{aside}
+% %
 % % Leave the percent signs to avoid creating a paragraph between minipages
 %
 %-------------------------------------------------------------------------------
@@ -54,8 +56,8 @@
 %-------------------------------------------------------------------------------
 \begin{main}
 \input{sections/education}
+\input{sections/skills}
 \input{sections/experience}
-\input{sections/dissemination}
 \end{main}
 
 \end{document}

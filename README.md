@@ -1,33 +1,29 @@
 # Friggen-Awesome-CV
 
-Friggen-Awesome CV is a XeLateX template for a CV or resumé based mostly on [CV-Friggeri-X](https://github.com/Nadorrano/cv-friggeri-x) by [Nadorrano](https://github.com/Nadorrano), with a dash of [Awesome-CV](https://github.com/posquit0/Awesome-CV) by [posquit0](https://github.com/posquit0). Both of those templates are inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv) template, originally released by [Adrian Friggeri](https://github.com/afriggeri).
+Friggen-Awesome CV is a XeLateX template for a CV or resumé based on [CV-Friggeri-X](https://github.com/Nadorrano/cv-friggeri-x) by [Nadorrano](https://github.com/Nadorrano), with a dash of [Awesome-CV](https://github.com/posquit0/Awesome-CV) by [posquit0](https://github.com/posquit0). Both of those templates are inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv) template, originally released by [Adrian Friggeri](https://github.com/afriggeri).
 
 
-## Preview
+## Layout options
 
-![screenshot](screenshot.png)
+#### Default layout
 
+The default template will fill the full width of the page with the content.
 
-## What's different from [CV-Friggeri-X](https://github.com/Nadorrano/cv-friggeri-x)
-
-#### New header
-
-*  Adapted from [Awesome CV](https://github.com/posquit0/Awesome-CV) by [posquit0](https://github.com/posquit0)
-* Uses fancyhdr instead of TikZ
-* All contact info is now in header instead of sidebar
-* Icons are created with FontAwesome
-* Removed the previous default black header
-
-#### Updated layout
-
-Template now uses `minipage` and `geometry` so content in sidebar and main sections are always aligned.
-
-#### Bibliography
-
-The latest version of `biblatex` broke the bibliography section of the original template. Since I wasn't using that section on my current resumé I commented that out. Maybe in the future I'll update that portion of the code. [This might be a good starting point](https://tex.stackexchange.com/q/327316).
+![default](default.png)
 
 
-## Template options
+#### Layout with sidebar
+
+You can also specify a `sidebar` template option to create an `aside` section:
+
+    \documentclass[sidebar]{friggen-awesome-cv}
+
+The template uses `minipage` and `geometry` so content in sidebar and main sections are always aligned.
+
+![sidebar](sidebar.png)
+
+
+## Other template options
 
 * A4 paper size: `\documentclass[a4paper]{friggen-awesome-cv}`
 * Black and white template: `documentclass[nocolors]{friggen-awesome-cv}`
@@ -52,6 +48,22 @@ The latest version of `biblatex` broke the bibliography section of the original 
     * To create the pdf file: `$ make` or `$ make all` or `$ make resume.pdf`
     * To clean up temporary latex files: `$ make decrap`
     * To also delete the compiled pdf file: `$ make clean`
+
+
+## What's different from [CV-Friggeri-X](https://github.com/Nadorrano/cv-friggeri-x)
+
+#### New header
+
+*  Adapted from [Awesome CV](https://github.com/posquit0/Awesome-CV) by [posquit0](https://github.com/posquit0)
+* Uses fancyhdr instead of TikZ
+* All contact info is now in header
+* Icons are created with FontAwesome
+* Removed the previous default black header
+
+
+#### Bibliography
+
+The latest version of `biblatex` broke the bibliography section of the original template. Since I wasn't using that section on my current resumé I commented that out. Maybe in the future I'll update that portion of the code. [This might be a good starting point](https://tex.stackexchange.com/q/327316).
 
 
 ## Credits
