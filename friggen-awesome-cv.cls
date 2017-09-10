@@ -338,7 +338,8 @@
 }
 
 \newcommand{\minientry}[2]{%
-  {\hfill\textbf{#1}} & \parbox[t]{0.77\textwidth}{#2} \\
+  \parbox[t]{0.13\textwidth}{\hfill\textbf{#1}} & %
+  \parbox[t]{0.86\textwidth}{#2} \\
 }
 
 
